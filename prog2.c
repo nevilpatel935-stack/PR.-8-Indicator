@@ -1,17 +1,14 @@
 #include <stdio.h>
-void cubeArray(int *ptr, int n)
+
+void cube(int *a, int r, int c)
 {
     int i, j;
 
-    printf("\nCube Matrix:\n");
-
-    for(i = 0; i < n; i++)
+    for (i=0;i<r; i++)
     {
-        for(j = 0; j < n; j++)
+        for (j=0;j<c;j++)
         {
-            printf("%d\t", ((ptr + i * n + j)) ;
-                           ((ptr + i * n + j)) ;
-                           ((ptr + i * n + j)));
+            printf("%d ", (*(a + i * c + j)) * (*(a + i * c + j)) * (*(a + i * c + j)));
         }
         printf("\n");
     }
@@ -19,24 +16,22 @@ void cubeArray(int *ptr, int n)
 
 int main()
 {
-    int n, i, j;
-    int a[10][10];
+    int a[10][10], r, c, i, j;
 
-    printf("Enter array's size: ");
-    scanf("%d", &n);
+    printf("Enter rows and columns: ");
+    scanf("%d%d", &r, &c);
 
-    printf("\nEnter array elements:\n");
-
-    for(i = 0; i < n; i++)
+    printf("Enter array elements:\n");
+    for (i=0;i<r;i++)
     {
-        for(j = 0; j < n; j++)
+        for (j=0;j<c;j++)
         {
-            printf("a[%d][%d] = ", i, j);
             scanf("%d", &a[i][j]);
         }
     }
 
-    cubeArray(&a[0][0], n);
+    printf("Cube of elements:\n");
+    cube(&a[0][0], r, c);
 
     return 0;
 }
